@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Viazmus - Авторизация</title>
+	
+	<link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}"/>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title">Авторизация</span>
+
+					<div class="text-center" th:if="${param.error}">
+						<p style="margin-bottom: 25px;">
+							<small class="txt1" >&#10071; Не корректный логин или пароль &#10071;</small></p>
+					</div>
+                <form th:action="@{/login}" method="post">
+					<div class="wrap-input100" style="margin-bottom: 25px;">
+						<input class="input100" type="text" name="username">
+						<span class="focus-input100"></span>
+						<span class="label-input100" >Логин</span>
+					</div>
+
+					<div class="wrap-input100" style="margin-bottom: 25px;">
+						<input class="input100" type="password" name="password" >
+						<span class="focus-input100"></span>
+						<span class="label-input100" >Пароль</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<input type="submit" class="login100-form-btn">Войти</input>
+					</div>
+				</form>
+					<div class="text-center" style="margin-top: 25px;">
+						<a style="text-decoration: none;" th:href="@{/register.html}"><span class="txt2">или зарегистрироваться</span></a>
+					</div>
+				</form>
+				<div class="login100-more" th:style="'background:url('+ @{/img/searching.png} +');'">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/vendor/select2/select2.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
+
+	<script type="text/javascript" th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+	<script type="text/javascript" th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+
+	<script type="text/javascript" th:src="@{/vendor/daterangepicker/moment.min.js}"></script>
+	<script type="text/javascript" th:src="@{/vendor/daterangepicker/daterangepicker.js}"></script>
+
+	<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>

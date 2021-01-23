@@ -1,0 +1,206 @@
+﻿<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Viazmus - Поиск</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style_search.css}">
+
+    <script th:src="@{/js/search_page.js}"></script>
+	
+    <link th:rel="stylesheet" th:href="@{/css/style_admin.css}">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+</head>
+
+<body lang="ru" style="background-color: #f7f7f7;">
+    <header>
+        <div class="header_">
+            <div class="title__text">
+                <h1>Поиск</h1>
+            </div>
+            <div class="title__extras">
+                <div class="header__date">
+                    <span id="date"></span>
+                </div>
+                <div class="header__user">
+                    Привет, <h1 th:text="${name}"></h1>
+                    <ul style="display: flex;">
+                        <li><a class="button__" th:href="@{/}"
+                                style="background-color: #22C064; color: #1C2E36; text-decoration: none;"><span>Перейти
+                                    на главную
+                                    страницу</span></a></li>
+                        <li sec:authorize="isAnonymous()"><a class="button__" th:href="@{/login}"
+                                style="background-color: #FFD700; color: #1C2E36; text-decoration: none;"><span>Войти</span></a>
+                        </li>
+                        <li sec:authorize="isAuthenticated()">
+                            <form th:action="@{/logout}" method="post">
+                                <button class="button__" type="submit" style="color: #1C2E36; text-decoration: none; outline: none; border: none;
+"> <span id="exit">
+                                    Выйти</span>
+
+                                </button>
+
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container" style="background-color: #f7f7f7;">
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-lg-12 card-margin">
+                <div class="card search-form" style="margin: 0 auto;">
+                    <div class="card-body p-0">
+                        <form id="search-form">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row no-gutters">
+                                        <form method="get" th:action="@{/search}">
+                                            <div class="col-lg-11 col-md-6 col-sm-12 p-0">
+                                                <input type="text" placeholder="Поиск..." class="form-control"
+                                                    id="search" name="q">
+                                            </div>
+                                            <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                                                <button type="submit" class="btn btn-base">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="feather feather-search">
+                                                        <circle cx="11" cy="11" r="8"></circle>
+                                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-margin">
+                    <div class="card-body">
+                        <div class="row search-body">
+                            <div class="col-lg-12">
+                                <div class="search-result">
+                                    <div class="result-header">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="records">Showing: <b>1-20</b> of <b>200</b> result</div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="result-actions">
+                                                    <div class="result-sorting">
+                                                        <span>Sort By:</span>
+                                                        <select class="form-control border-0" id="exampleOption">
+                                                            <option value="1">Relevance</option>
+                                                            <option value="2">Names (A-Z)</option>
+                                                            <option value="3">Names (Z-A)</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="result-body">
+                                        <div class="table-responsive">
+                                           <table id="tableList" class="table widget-26">
+                                                <tbody>
+
+
+                                                    <tr th:each="results : ${result}">
+                                                        <td>
+                                                            <div class="widget-26-job-emp-img">
+                                                                <img th:attr="src=${results.img}" alt="Company" />
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-title">
+                                                                <a target="_blank" th:href="${results.link}" data-th-text="${results.firstWord}"></a>
+                                                                <p class="m-0"><span class="text-muted time" th:text="${results.secondWord}"></span></p>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-info">
+                                                                <p id="fileTxt" class="type m-0" th:text="${results.fileName}">"[(${results.fileName})]"</p>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-salary" th:text="${results.size}"></div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-category bg-soft-base">
+                                                                <span id="rate" th:text="${results.relevantStr}"></span>
+                                                            </div>
+                                                        </td>
+                                                        <td sec:authorize="isFullyAuthenticated()">
+                                                            <div id="boost" class="widget-26-job-starred">
+                                                                <a>
+                                                                    <svg
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                        width="24"
+                                                                        height="24"
+                                                                        viewBox="0 0 24 24"
+                                                                        fill="none"
+                                                                        stroke="currentColor"
+                                                                        stroke-width="2"
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round"
+                                                                        class="feather feather-star"
+                                                                    >
+                                                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="d-flex justify-content-center">
+                            <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+                                <li class="page-item">
+                                    <a class="page-link no-border" href="#">
+                                        <span aria-hidden="true">«</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
+                                <li class="page-item">
+                                    <a class="page-link no-border" href="#">
+                                        <span aria-hidden="true">»</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</body>

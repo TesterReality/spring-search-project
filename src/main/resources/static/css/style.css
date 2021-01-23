@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+  height: 10vh;
+  background-color: #974fe4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.goto {
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #6303b8;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 15px 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.search-box {
+  width: 100vw;
+  height: 90vh;
+  color: white;
+  background: #974fe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+.note {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  color: #6426a7;
+}
+
+#search {
+  height: 70px;
+  width: 500px;
+  align-items: center;
+  border-radius: 10px;
+  background: #8a44d5;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 0 15px;
+  transition: all 0.5s;
+}
+
+#search:hover, #search:focus {
+  background: #853cd3;
+}
+
+#search button, #search input {
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#search button {
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+#search input {
+  flex: 1;
+}
+
+#search input::-moz-placeholder {
+  color: white;
+}
+
+#search input:-ms-input-placeholder {
+  color: white;
+}
+
+#search input::placeholder {
+  color: white;
+}
+
+#search .spinner {
+  display: none;
+  padding-left: 15px;
+  -webkit-animation: spinner 1s infinite linear;
+  animation: spinner 1s infinite linear;
+}
+
+#search.loading button {
+  display: none;
+}
+
+#search.loading .spinner {
+  display: block;
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

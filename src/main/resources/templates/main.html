@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <title>Viazmus</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" th:src="@{/js/search.js}"></script>
+</head>
+
+<body lang="ru">
+    <div>
+        <div class="login">
+            <div style="margin: 30px 15px 0 0;">
+                <p style="color: white; font-size: 14px;">Привет, </p>
+                <h1 sec:authorize="isAuthenticated()" th:text="${user}"></h1>
+                <h1 sec:authorize="isAnonymous()">Пользователь!</h1>
+
+            </div>
+            <form style="display: inline-block;" sec:authorize="isAnonymous()" th:action="@{/login}" method="get">
+                <input type="submit" class="goto" style="margin: 30px 15px 0 0;" value="Войти" />
+            </form>
+            <div sec:authorize="isFullyAuthenticated()">
+            <form style="display: inline-block;" th:action="@{/logout}" method="post">
+                <input type="submit" class="goto" style="margin: 30px 15px 0 0;" value="Выйти" />
+            </form>
+            <form sec:authorize="hasAuthority('ADMIN')" th:action="@{/admin/uploadFile}" style="display: inline-block;" method="get">
+                <input type="submit" class="goto" style="margin: 30px 30px 0 0;" value="В личный кабинет" />
+            </form>
+                <form sec:authorize="hasAuthority('USER')" th:action="@{/foruser}" style="display: inline-block;" method="get">
+                    <input type="submit" class="goto" style="margin: 30px 30px 0 0;" value="В личный кабинет" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="search-box">
+        <form id="forms-search" class="forms-search" method="post" th:action="@{/}">
+            <div id="search">
+                <input type="text" id="input" name="text" style="font-size: 20px;" placeholder="Поиск..." />
+                <button id="button" type="submit"><i class="fa fa-search"></i></button>
+                <div class="spinner" style="width: 10%"><i class="fa fa-spinner"></i></div>
+            </div>
+        </form>
+        <div class="note">Нажмите Enter или на кнопку</div>
+    </div>
+</body>

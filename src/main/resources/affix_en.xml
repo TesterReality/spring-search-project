@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<affixes>
+	<!-- префиксы -->
+	<flag name="*A">
+		<line>
+			<regex>.</regex>
+			<base></base>
+			<ending>re</ending>
+		</line>
+	</flag>
+	<flag name="*I">
+		<line>
+			<regex>.</regex>
+			<base></base>
+			<ending>in</ending>
+		</line>
+	</flag>
+	<flag name="*U">
+		<line>
+			<regex>.</regex>
+			<base></base>
+			<ending>un</ending>
+		</line>
+	</flag>
+	
+	
+	<!-- суффиксы -->
+	<flag name="V">
+		<line>
+			<regex>e</regex>
+			<base>e</base>
+			<ending>ive</ending>
+		</line>
+		<line>
+			<regex>[^e]</regex>
+			<base></base>
+			<ending>ive</ending>
+		</line>
+	</flag>
+	<flag name="*N">
+		<line>
+			<regex>e</regex>
+			<base>e</base>
+			<ending>ion</ending>
+		</line>
+		<line>
+			<regex>y</regex>
+			<base>y</base>
+			<ending>ication</ending>
+		</line>
+		<line>
+			<regex>[^ey]</regex>
+			<base></base>
+			<ending>en</ending>
+		</line>
+	</flag>
+	
+	<flag name="*X">
+		<line>
+			<regex>e</regex>
+			<base>e</base>
+			<ending>ions</ending>
+		</line>
+		<line>
+			<regex>y</regex>
+			<base>y</base>
+			<ending>ications</ending>
+		</line>
+		<line>
+			<regex>[^ey]</regex>
+			<base></base>
+			<ending>ens</ending>
+		</line>
+	</flag>
+	
+	<flag name="H">
+		<line>
+			<regex>y</regex>
+			<base>y</base>
+			<ending>ieth</ending>
+		</line>
+		<line>
+			<regex>[^y]</regex>
+			<base></base>
+			<ending>th</ending>
+		</line>
+	</flag>
+	
+	<flag name="*Y">
+		<line>
+			<regex>y</regex>
+			<base>y</base>
+			<ending>ily</ending>
+		</line>
+		<line>
+			<regex>[^y]</regex>
+			<base></base>
+			<ending>ly</ending>
+		</line>
+	</flag>
+	
+	<flag name="*G">
+		<line>
+			<regex>e</regex>
+			<base>e</base>
+			<ending>ing</ending>
+		</line>
+		<line>
+			<regex>[^e]</regex>
+			<base></base>
+			<ending>ing</ending>
+		</line>
+	</flag>
+	
+	<flag name="*J">
+		<line>
+			<regex>e</regex>
+			<base>e</base>
+			<ending>ings</ending>
+		</line>
+		<line>
+			<regex>[^e]</regex>
+			<base></base>
+			<ending>ings</ending>
+		</line>
+	</flag>
+	
+	<flag name="*D">
+		<line>
+			<regex>e</regex>
+			<base></base>
+			<ending>d</ending>
+		</line>
+		<line>
+			<regex>[^aeiou]y</regex>
+			<base>y</base>
+			<ending>ied</ending>
+		</line>
+		<line>
+			<regex>[^ey]</regex>
+			<base></base>
+			<ending>ed</ending>
+		</line>
+		<line>
+			<regex>[aeiou]y</regex>
+			<base></base>
+			<ending>ed</ending>
+		</line>
+	</flag>
+	
+	<flag name="T">
+		<line>
+			<regex>e</regex>
+			<base></base>
+			<ending>st</ending>
+		</line>
+		<line>
+			<regex>[^aeiou]y</regex>
+			<base>y</base>
+			<ending>iest</ending>
+		</line>
+		<line>
+			<regex>[aeiou]y</regex>
+			<base></base>
+			<ending>est</ending>
+		</line>
+		<line>
+			<regex>[^ey]</regex>
+			<base></base>
+			<ending>est</ending>
+		</line>
+	</flag>
+	
+	<flag name="*R">
+		<line>
+			<regex>e</regex>
+			<base></base>
+			<ending>r</ending>
+		</line>
+		<line>
+			<regex>[^aeiou]y</regex>
+			<base>y</base>
+			<ending>ier</ending>
+		</line>
+		<line>
+			<regex>[aeiou]y</regex>
+			<base></base>
+			<ending>er</ending>
+		</line>
+		<line>
+			<regex>[^ey]</regex>
+			<base></base>
+			<ending>er</ending>
+		</line>
+	</flag>
+	
+	<flag name="*Z">
+		<line>
+			<regex>e</regex>
+			<base></base>
+			<ending>rs</ending>
+		</line>
+		<line>
+			<regex>[^aeiou]y</regex>
+			<base>y</base>
+			<ending>iers</ending>
+		</line>
+		<line>
+			<regex>[aeiou]y</regex>
+			<base></base>
+			<ending>ers</ending>
+		</line>
+		<line>
+			<regex>[^ey]</regex>
+			<base></base>
+			<ending>ers</ending>
+		</line>
+	</flag>
+	
+	<flag name="*S">
+		<line>
+			<regex>[^aeiou]y</regex>
+			<base>y</base>
+			<ending>ies</ending>
+		</line>
+		<line>
+			<regex>[aeiou]y</regex>
+			<base></base>
+			<ending>s</ending>
+		</line>
+		<line>
+			<regex>[cst]h</regex>
+			<base></base>
+			<ending>es</ending>
+		</line>
+		<line>
+			<regex>[^cst]h</regex>
+			<base></base>
+			<ending>es</ending>
+		</line>
+		<line>
+			<regex>[sxz]</regex>
+			<base></base>
+			<ending>es</ending>
+		</line>
+		<line>
+			<regex>[^sxzhy]</regex>
+			<base></base>
+			<ending>s</ending>
+		</line>
+	</flag>
+	
+	<flag name="*P">
+		<line>
+			<regex>[^aeiou]y</regex>
+			<base>y</base>
+			<ending>iness</ending>
+		</line>
+		<line>
+			<regex>[aeiou]y</regex>
+			<base></base>
+			<ending>ness</ending>
+		</line>
+		<line>
+			<regex>[^y]</regex>
+			<base></base>
+			<ending>ness</ending>
+		</line>
+	</flag>
+	
+	<flag name="*M">
+		<line>
+			<regex>.</regex>
+			<base></base>
+			<ending>'s</ending>
+		</line>
+	</flag>
+</affixes>

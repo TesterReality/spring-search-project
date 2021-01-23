@@ -1,0 +1,122 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Viazmus - Страница пользователя</title>
+
+    <link rel="stylesheet" th:href="@{/css/style_admin.css}">
+    <link rel="stylesheet" th:href="@{/css/style_table.css}">
+    <link rel="stylesheet" th:href="@{/css/style_number_page.css}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" type="text/css" href="http://www.jqueryscript.net/css/jquerysctipttop.css">
+    <link rel="stylesheet" type="text/css" th:src="@{/css/paging.css}">
+
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/datatables.css}" />
+
+    <script th:src="@{/js/file_admin.js}"></script>
+    <script th:src="@{/js/page.js}"></script>
+
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+</head>
+
+<body lang="ru">
+    <div style="height: 100vh;">
+        <div class="content">
+            <div class="title" id="title-bar">
+                <div class="title__text">
+                    <h1>Моя страница</h1>
+                </div>
+                <div class="title__extras">
+                    <div class="header__date">
+                        <span id="date"></span>
+                    </div>
+                    <div class="header__user">
+                        Привет, <h1 th:text="${adminName}"></h1>
+                        <ul style="display: flex;">
+                            <li><a class="button_" th:href="@{/}" style="background-color: #22C064; color: #1C2E36; text-decoration: none;"><span>Перейти на главную
+                                        страницу</span></a></li>
+                            <li>
+                                <form th:action="@{/logout}" method="post">
+                                <button class="button_" type="submit" style="color: #1C2E36; text-decoration: none; outline: none; border: none;">
+                                    <span id="exit">
+                                    Выйти
+                                    </span>
+                                </button>
+                            </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header" id="indicator"></div>
+
+            <div class="content__main" style="height: calc(100vh - 100px);">
+                <div style="width: 100%;">
+                    <div class="box">
+                        <div>
+                            <table id="tableList">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Файл</th>
+                                        <th>Действие</th>
+                                    </tr>
+                                    <!--<tr>
+                                        <th colspan="3">Список файлов для поиска</th>
+                                    </tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th colspan="2">Файл</th>
+                                    </tr>-->
+                                </thead>
+                                <tbody id="fileCount">
+                                    <!--<tr>
+                                        <td>1</td>
+                                        <td>Atualizar página da equipe</td>
+                                        <td>
+                                            <i class="material-icons button-table edit">edit</i>
+                                            <i class="material-icons button-table delete">delete</i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Design da nova marca</td>
+                                        <td>
+                                            <i class="material-icons button-table edit">edit</i>
+                                            <i class="material-icons button-table delete">delete</i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Encontrar desenvolvedor front-end</td>
+                                        <td>
+                                            <i class="material-icons button-table edit">edit</i>
+                                            <i class="material-icons button-table delete">delete</i>
+                                        </td>
+                                    </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                // $("#tableList").hpaging({ "limit": 10 });
+                            });
+                        </script>
+                    </div>
+                    <div style="height: 30px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript" th:src="@{/js/datatables.min.js}"></script>
+
+</body>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <title>Viazmus - Администратор - Редактировать</title>
+  <link rel="stylesheet" th:href="@{/css/style_edit.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <script th:src="@{/js/file_edit.js}"></script>
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+
+
+
+</head>
+
+<body lang="ru" style="background-color: #f7f7f7">
+   
+  <div class="page" >
+
+
+    <div class="content">
+      <div class="title" id="title-bar">
+
+        
+        <div class="title__text">
+          <span>Редактированое файла</span>
+          <h1>Редактор</h1>
+        </div>
+        <div class="title__extras">
+          <div class="header__date">
+            <span id="date"></span>
+          </div>
+          <div class="header__user">
+            Привет, <h1 th:text="${adminName}"></h1>
+            <svg class="lnr lnr-cog icon"><use xlink:href="#lnr-cog"></use></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+
+        <form th:action="@{/saveFile}" method="post">
+
+        <div class="text-title">
+          <div class="wrapper">
+          <input type="text" name="names" readonly th:value="${fileName}"/>
+          <label class="placeholder" style="margin: -30px;">Название файла *</label>
+        </div>
+        </div>
+
+        <div class="wrapper">
+          <textarea name="fileText" type="text" th:text="${fileText}"></textarea>
+          <label class="placeholder">Содержимое</label>
+        </div>
+          <button type="submit" id="get" class="btn btn-success">Сохранить</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
