@@ -74,12 +74,14 @@ public class frequencyCounter {
             List<String> positionList = SubMap.get(text);
 
             //Make posting for each word, market 1:4:3,11,15,25 (Document)
-            String posting =  "["+docID.get(file.getName())+"]"+ ":" + positionList.size() + ":";
+            StringBuilder posting = new StringBuilder("["+docID.get(file.getName())+"]"+ ":" + positionList.size() + ":");
             int i=1;
             for(String pos:positionList){
-                posting = posting + pos;
+                //posting = posting + pos;
+                posting.append(pos);
                 if(i != positionList.size()){
-                    posting = posting + ',';
+                   // posting = posting + ',';
+                    posting.append(",");
                 }
                 i++;
             }
@@ -88,12 +90,12 @@ public class frequencyCounter {
             List<String> Documents_posting;
             if(MainMap.containsKey(text)){
                 Documents_posting = MainMap.get(text);
-                Documents_posting.add(posting);
+                Documents_posting.add(posting.toString());
                 MainMap.put(text,Documents_posting);
             }
             else{
                 Documents_posting = new ArrayList<>();
-                Documents_posting.add(posting);
+                Documents_posting.add(posting.toString());
                 MainMap.put(text,Documents_posting);
             }
         }
@@ -108,28 +110,28 @@ public class frequencyCounter {
 
         char ch = 'a';
         for(String str : treeMainMap.keySet()){
-            ch = str.charAt(0);
-            File dirOfIndex = new File("upload/indexFile");
-            if (!dirOfIndex.exists()) {
-                dirOfIndex.mkdir();
-                System.out.println("Создан"+dirOfIndex.getCanonicalPath());
-            }
+            if(!str.equals("")) {
+                ch = str.charAt(0);
+                File dirOfIndex = new File("upload/indexFile");
+                if (!dirOfIndex.exists()) {
+                    dirOfIndex.mkdir();
+                    System.out.println("Создан" + dirOfIndex.getCanonicalPath());
+                }
 
-            File file = new File("upload/indexFile/"+ch+".txt");
-            try
-            {
-                boolean created = file.createNewFile();
-                if(created)
-                    System.out.println(file.getName()+ " has been created");
-            }
-            catch(IOException ex){
+                File file = new File("upload/indexFile/" + ch + ".txt");
+                try {
+                    boolean created = file.createNewFile();
+                    if (created)
+                        System.out.println(file.getName() + " has been created");
+                } catch (IOException ex) {
 
-                System.out.println(ex.getMessage());
-            }
+                    System.out.println(ex.getMessage());
+                }
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file,true));
-            writer.write(str+" "+ String.join(";",treeMainMap.get(str))+"\n");
-            writer.close();
+                BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+                writer.write(str + " " + String.join(";", treeMainMap.get(str)) + "\n");
+                writer.close();
+            }
         }
     }
 

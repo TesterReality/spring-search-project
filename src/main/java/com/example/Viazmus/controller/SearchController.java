@@ -63,14 +63,13 @@ public class SearchController {
         }
 
         List<ResultSearch> fixResultSearches = new ArrayList<>();
-
-        for(int i=0;i<resultSearches.size();i++)
-        {
-            if(!resultSearches.get(i).getSecondWord().equals(" ...")){
-                fixResultSearches.add(resultSearches.get(i));
+        if(resultSearches!=null) {
+            for (int i = 0; i < resultSearches.size(); i++) {
+                if (!resultSearches.get(i).getSecondWord().equals(" ...")) {
+                    fixResultSearches.add(resultSearches.get(i));
+                }
             }
         }
-
         model.addAttribute("result",fixResultSearches);
       //  model.addAttribute("fileName",name);
 

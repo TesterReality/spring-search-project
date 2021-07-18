@@ -16,7 +16,7 @@ public class ConverDocIdToFile {
     }
 
 
-    public void parseFile()
+    public boolean parseFile()
     {
        File doIdFile = new File(path);
        if(doIdFile.exists())
@@ -25,6 +25,8 @@ public class ConverDocIdToFile {
            {
                try {
                    String file = readUsingBufferedReader(doIdFile.getCanonicalPath());
+                   if(file == null) return false;//если в системе нет файлов
+
                    String[] allStr = file.split("\r\n");
 
                    for (int i=0;i<allStr.length;i++)
@@ -47,8 +49,9 @@ public class ConverDocIdToFile {
                } catch (IOException e) {
                    e.printStackTrace();
                }
-           }
-       }
+               return true;
+           }else return false;
+       }else return false;
 
     }
 
@@ -62,6 +65,7 @@ public class ConverDocIdToFile {
             stringBuilder.append( ls );
         }
 
+        if (stringBuilder.toString().length()==0) return null;
         stringBuilder.deleteCharAt(stringBuilder.length()-1);
         return stringBuilder.toString();
     }

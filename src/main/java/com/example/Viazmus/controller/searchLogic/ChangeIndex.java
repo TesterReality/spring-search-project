@@ -45,6 +45,7 @@ public class ChangeIndex {
 
             for (File file : listOfFiles) {
                 if (file.isFile()) {
+
                     String content = Files.lines(Paths.get(file.getCanonicalPath())).reduce("", String::concat);
                     content = content.replaceAll("[^A-Za-zА-Яа-я0-9 ]", ""); // удалится все кроме букв и цифр
                     content = content.toLowerCase();
@@ -62,14 +63,17 @@ public class ChangeIndex {
                     }
                     BufferedWriter writer = new BufferedWriter(new FileWriter(fileOut,true));
 
+                    StringBuilder resultLemms = new StringBuilder();
                     for(int i=0; i <words.length; i++)
                     {
                         if(!words[i].isEmpty())
                         {
-                            result = lemmatizer.getLemma(words[i]);
-                            writer.write(result+" ");
+                           // result = lemmatizer.getLemma(words[i]);
+                            resultLemms.append(lemmatizer.getLemma(words[i]) +" ");
                         }
                     }
+                    writer.write(resultLemms.toString()+" ");
+
                     writer.close();
                 }
             }

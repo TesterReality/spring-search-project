@@ -15,8 +15,16 @@ public class Search {
 
     public  List<ResultSearch> startSearch (String[] args1) throws IOException{
 
+        File haveFile = new File("upload/docID/docId.txt");
+        if (!haveFile.exists()) {
+            return null;
+        }
+
         ConverDocIdToFile converDocIdToFile = new ConverDocIdToFile("upload/docID/docId.txt");
-        converDocIdToFile.parseFile();
+           if(converDocIdToFile.parseFile() == false)
+           {
+               return null;
+           }
 
         docID=converDocIdToFile.getDocID();
 
