@@ -20,6 +20,11 @@
 
  Данный проект создан для демонстрации возможностей Spring и в целях личного обучения 
  
+## _Демонстрационный видеоролик_
+ 
+[![Посмотрите видео!](https://thumb.cloud.mail.ru/weblink/thumb/xw1/DShr/KpPbg5wEU/Screenshot_7.jpg)](https://player-smotri.mail.ru/?viewMode=external&brandsafety=1&autoplay=0&tags=1193&manifestUrl=https%3A%2F%2Fcloclo57.cloud.mail.ru%2Fvideowl%2F0p%2FRFNoci9LcFBiZzV3RVUvU2NyZWVuUmVjb3JkZXJQcm9qZWN0MS5tcDQ%3D.m3u8%3Fdouble_encode%3D1&pictureUrl=https%3A%2F%2Fthumb.cloud.mail.ru%2Fweblink%2Fthumb%2Fvxw0%2FDShr%2FKpPbg5wEU%2FScreenRecorderProject1.mp4&initLow=0)
+
+ 
 ## _Объяснение работы (Осторожно! Много текста!)_
 
 Допустим, у нас есть корпус текстов - информация, отобранная по определенным правилам. И наша задача - найти необходимую информацию.
@@ -65,6 +70,7 @@
 [![Viazmus](https://thumb.cloud.mail.ru/weblink/thumb/xw1/DShr/KpPbg5wEU/9.jpg)]()
 
 Также зарегистрированные пользователи могут изменить (увеличивать) релевантность запроса. Нажав на элемент в интерфейсе, как показано на рисунке ниже.
+
 [![Viazmus](https://thumb.cloud.mail.ru/weblink/thumb/xw1/DShr/KpPbg5wEU/10.jpg)]()
 
 Администратор может просматривать список доступных в системе файлов.
